@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import "./estilo.css";
 
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
@@ -18,7 +17,6 @@ import{
   Sobre,
   Title,
   Descricao,
-  TitleEstatistica,
   BotaoGrafico,
   DivContentInfo,
   ContentStatistic
@@ -32,9 +30,13 @@ export default class Example extends PureComponent {
   render() {
     return (
       <Container>
-        <ContentHeader title="Gráfico de barras com análise na nota do aluno e as faltas do aluno" link1="" link2="/Grafico1Vs2" link3="/Grafico1Vs3"/>
+        <ContentHeader title="Gráfico de colunas com análise na nota do aluno e as faltas do aluno" link1="" link2="/Grafico1Vs2" link3="/Grafico1Vs3"/>
 
         <Grid>
+          <DivContentInfo>
+            <ContentInfo/>
+          </DivContentInfo>
+
           <Grafico>
             <Header>
               <Sobre>
@@ -43,14 +45,10 @@ export default class Example extends PureComponent {
               </Sobre>
               <BotaoGrafico href="/Grafico1Vs1Cresc"> Crescente <span>&gt;</span> </BotaoGrafico>
             </Header>
-
-            <DivContentInfo>
-              <ContentInfo/>
-            </DivContentInfo>
             
             <BarChart
               width={650}
-              height={300}
+              height={280}
               font-family={'sans-serif'}
               data={datag1}
               margin={{
@@ -71,12 +69,8 @@ export default class Example extends PureComponent {
 
           <ContentStatistic>
               <Title> Estatística - Estudante </Title>
-              <ContentCampos nome="Situação" porcentagem="51%" cor1="#edf4fe" cor2="#5092f2"/>
-              <ContentCampos nome="Frequência" porcentagem="26.4%" cor1="#e8faee" cor2="#1ac167"/>
-
-              <TitleEstatistica> Estatística - Turma </TitleEstatistica>
-              <ContentCampos nome="Situação" porcentagem="51%" cor1="#edf4fe" cor2="#5092f2"/>
-              <ContentCampos nome="Frequência" porcentagem="26.4%" cor1="#e8faee" cor2="#1ac167"/>
+              <ContentCampos nome="Situação" porcentagem="46%" cor1="#edf4fe" cor2="#5092f2"/>
+              <ContentCampos nome="Frequência" porcentagem="51.2%" cor1="#e8faee" cor2="#1ac167"/>
           </ContentStatistic>
         </Grid>        
       </Container>

@@ -1,9 +1,12 @@
 import React, { PureComponent } from 'react';
+
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
 
+
 import ContentHeader from '../../../ContentHeader';
+import ContentInfo from '../../../ContentInfo';
 import ContentCampos from '../../../ContentCampos';
 
 import{
@@ -11,9 +14,11 @@ import{
   Container,
   Grafico,
   Header,
+  Sobre,
   Title,
-  TitleEstatistica,
+  Descricao,
   BotaoGrafico,
+  DivContentInfo,
   ContentStatistic
 } from  './styles';
 
@@ -25,18 +30,25 @@ export default class Example extends PureComponent {
   render() {
     return (
       <Container>
-        <ContentHeader title="Gráfico de barras com análise da Nota do aluno vs Faltas do aluno" link1="" link2="/Grafico1Vs2" link3="/Grafico1Vs3"/>
+        <ContentHeader title="Gráfico de barras com análise na nota do aluno e as faltas do aluno" link1="" link2="/Grafico1Vs2" link3="/Grafico1Vs3"/>
 
         <Grid>
+          <DivContentInfo>
+            <ContentInfo/>
+          </DivContentInfo>
+
           <Grafico>
             <Header>
-              <Title> Nota Aluno vs Falta durante Avaliação </Title>
+              <Sobre>
+                <Title> Nota Aluno e Falta durante Avaliação </Title>
+                <Descricao> Aqui vai uma breve descrição do gráfico para melhor compreensão da sua funcionalidade no qual eu não sei oq escrever ainda rs. </Descricao>
+              </Sobre>
               <BotaoGrafico href="/Grafico1Vs1"> Individual <span>&gt;</span> </BotaoGrafico>
             </Header>
 
             <BarChart
                 width={650}
-                height={300}
+                height={280}
                 data={datag12}
                 margin={{
                 top: 20, right: 30, left: 20, bottom: 5,
@@ -55,12 +67,8 @@ export default class Example extends PureComponent {
 
           <ContentStatistic>
               <Title> Estatística - Estudante </Title>
-              <ContentCampos nome="Situação" porcentagem="51%" cor1="#edf4fe" cor2="#5092f2"/>
-              <ContentCampos nome="Frequência" porcentagem="26.4%" cor1="#e8faee" cor2="#1ac167"/>
-
-              <TitleEstatistica> Estatística - Turma </TitleEstatistica>
-              <ContentCampos nome="Situação" porcentagem="51%" cor1="#edf4fe" cor2="#5092f2"/>
-              <ContentCampos nome="Frequência" porcentagem="26.4%" cor1="#e8faee" cor2="#1ac167"/>
+              <ContentCampos nome="Situação" porcentagem="46%" cor1="#edf4fe" cor2="#5092f2"/>
+              <ContentCampos nome="Frequência" porcentagem="51.2%" cor1="#e8faee" cor2="#1ac167"/>
           </ContentStatistic>
         </Grid>        
       </Container>

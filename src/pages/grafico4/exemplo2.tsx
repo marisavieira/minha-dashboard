@@ -4,39 +4,69 @@ import {
   ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
 
-
-import ContentHeader from '../../ContentHeader';
-import{
-  Container,
-  Grafico,
-  Header,
-  Title,
-  Botoes,
-  BtnLink
-} from  './styles';
-
 import datag401 from '../../repositories/grafico401';
 import datag402 from '../../repositories/grafico402';
 import datag403 from '../../repositories/grafico403';
 import datag404 from '../../repositories/grafico404';
 
 
+import ContentHeader from '../../ContentHeader';
+import ContentInfo from '../../ContentInfo';
+import ContentGrafico from '../../ContentGrafico';
+
+import{
+  Grid,
+  Container,
+  Grafico,
+  Header,
+  Sobre,
+  Title,
+  Descricao,
+  DivContentInfo,
+  ContentStatistic,
+  Botoes,
+  BtnLink
+} from  './styles';
+
+const datag = [
+  {
+      name: "Sem risco",
+      value: 25,
+      percent: 62.5, 
+      color: '#5092f2'
+  },
+  {
+      name: "Em risco",
+      value: 15,
+      percent: 37.5, 
+      color: '#e74c3c'
+  },
+];
+
+
 export default class Example extends PureComponent {
   static jsfiddleUrl = 'https://jsfiddle.net/alidingling/3mw50Lc9/';
-  
 
   render() {
-    
-        const borda = 2;
-        return (
-          <Container>
-            <ContentHeader title="Gráfico de dispersão faltas vs notas turma com categorização entre as 4 atividades distintas" link1="Grafico4Vs1" link2="" link3="/Grafico4Vs3"/>
-    
+    const borda = 2;
+    return (
+      <Container>
+        <ContentHeader title="Gráfico de dispersão faltas vs notas turma com categorização entre as 4 atividades distintas" link1="" link2="/Grafico4Vs2" link3="/Grafico4Vs3"/>
+
+        <Grid>
+          <DivContentInfo>
+            <ContentInfo/>
+          </DivContentInfo>
+
           <Grafico>
             <Header>
-              <Title> Nota Turma vs Quantidade Falta </Title>
+              <Sobre>
+                <Title> Nota Turma e Quantidade Falta </Title>
+                <Descricao> Aqui vai uma breve descrição do gráfico para melhor compreensão da sua funcionalidade no qual eu não sei oq escrever ainda rs. </Descricao>
+              </Sobre>
             </Header>
-              <ScatterChart
+            
+            <ScatterChart
                 width={600}
                 height={500}
                 margin={{
@@ -62,9 +92,15 @@ export default class Example extends PureComponent {
                   <BtnLink href="../grafico0403"> Prova 2 </BtnLink>
                   <BtnLink href="../grafico0404"> Trabalho 1 </BtnLink>
                   <BtnLink href="../grafico0405"> Trabalho 2 </BtnLink>
-                </Botoes>
-              </Grafico>      
-        </Container>
-        );
+                </Botoes> 
+          </Grafico>
+
+          <ContentStatistic>
+              <Title> Estatística - Turma </Title>
+              <ContentGrafico data={datag}/>
+          </ContentStatistic>
+        </Grid>        
+      </Container>
+    );
   }
 }

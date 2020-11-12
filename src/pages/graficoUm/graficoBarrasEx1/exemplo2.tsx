@@ -1,23 +1,23 @@
-//- Gráfico de barras com análise da nota do aluno Vs faltas do aluno (tipo um histograma) (Gráfico Individual)
-//- Gráfico de radar com a análise da nota que o aluno obteve em cada uma das provas Vs a média da nota da turma em cada prova (Gráfico Individual)
-//- Gráfico de dispersão com o comportamento faltas Vs notas de uma turma inteira com categorização entre as 4 provas distintas (Gráfico de turma)
-//- Gráfico de barras com todas as notas que os alunos alcançaram em determinada prova Vs a média da turma naquela prova (Gráfico de turma)
-
 import React, { PureComponent } from 'react';
+
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
 
 
 import ContentHeader from '../../../ContentHeader';
+import ContentInfo from '../../../ContentInfo';
+import ContentCampos from '../../../ContentCampos';
 
 import{
   Grid,
   Container,
   Grafico,
   Header,
+  Sobre,
   Title,
-  BotaoGrafico,
+  Descricao,
+  DivContentInfo,
   ContentStatistic
 } from  './styles';
 
@@ -30,33 +30,46 @@ export default class Example extends PureComponent {
   render() {
     return (
       <Container>
-        <ContentHeader title="Gráfico de barras com análise da Nota do aluno vs Faltas do aluno" link1="/Grafico1Vs1" link2="" link3="/Grafico1Vs3"/>
+        <ContentHeader title="Gráfico de colunas com análise na nota do aluno e as faltas do aluno" link1="/Grafico1Vs1" link2="" link3="/Grafico1Vs3"/>
 
         <Grid>
+          <DivContentInfo>
+            <ContentInfo/>
+          </DivContentInfo>
+
           <Grafico>
             <Header>
-              <Title> Nota Aluno vs Falta durante Avaliação </Title>
+              <Sobre>
+                <Title> Nota Aluno e Falta durante Avaliação </Title>
+                <Descricao> Aqui vai uma breve descrição do gráfico para melhor compreensão da sua funcionalidade no qual eu não sei oq escrever ainda rs. </Descricao>
+              </Sobre>
             </Header>
             
             <BarChart
               width={650}
-              height={300}
+              height={280}
+              font-family={'sans-serif'}
               data={datag1}
+              margin={{
+                top: 20, right: 30, left: 20, bottom: 5,
+              }}
             >
-              <CartesianGrid stroke="#f5f5f5" horizontal={true} vertical={false}/>
+            <CartesianGrid stroke="#f5f5f5" horizontal={true} vertical={false}/>
               <XAxis dataKey="avaliacao" />
-              <YAxis yAxisId="left" orientation="left" stroke="#0c2461" tickSize={6} ticks={[0, 0.5, 1, 1.5, 2, 2.5]} domain={[0, 2.5]}/>
-              <YAxis yAxisId="right" orientation="right" stroke="#74b9ff" tickSize={6} ticks={[0, 4, 8, 12, 16, 20]} />
+              <YAxis 
+              yAxisId="left" tickLine={false} orientation="left" stroke="#5092f2" tickSize={6} ticks={[0, 0.5, 1, 1.5, 2, 2.5]} domain={[0,2.5]}/>
+              <YAxis yAxisId="right" orientation="right" stroke="#3498db" tickSize={6} ticks={[0, 4, 8, 12, 16, 20]} />
               <Tooltip />
               <Legend />
-              <Bar yAxisId="left" barSize={40} dataKey="nota" fill="#0c2461" />
-              <Bar yAxisId="right" barSize={40} dataKey="faltas" fill="#74b9ff" />
-            </BarChart>              
+              <Bar yAxisId="left" barSize={40} dataKey="nota" fill="#5092f2" />
+              <Bar yAxisId="right" barSize={40} dataKey="faltas" fill="#1ac167" />
+            </BarChart>            
 
             
             <BarChart
                 width={650}
-                height={300}
+                height={280}
+                font-family={'sans-serif'}
                 data={datag12}
                 margin={{
                 top: 20, right: 30, left: 20, bottom: 5,
@@ -64,16 +77,20 @@ export default class Example extends PureComponent {
             >
                 <CartesianGrid stroke="#f5f5f5" horizontal={true} vertical={false}/>
                 <XAxis dataKey="avaliacao" />
-                <YAxis yAxisId="left" orientation="left" stroke="#2f2851" tickSize={5} ticks={[0, 2.5, 5, 7.5, 10]} domain={[0, 10]}/>
-                <YAxis yAxisId="right" orientation="right" stroke="#bfb9da" tickSize={5} ticks={[0, 20, 40, 60, 80]}/>
+                <YAxis yAxisId="left" orientation="left" stroke="#5092f2" tickSize={5} ticks={[0, 2.5, 5, 7.5, 10]} domain={[0, 10]}/>
+                <YAxis yAxisId="right" orientation="right" stroke="#1ac167" tickSize={5} ticks={[0, 20, 40, 60, 80]}/>
                 <Tooltip />
                 <Legend />
-                <Bar yAxisId="left" dataKey="nota" barSize={40} fill="#2f2851" />
-                <Bar yAxisId="right" dataKey="faltas" barSize={40} fill="#bfb9da" />
-            </BarChart>        
+                <Bar yAxisId="left" dataKey="nota" barSize={40} fill="#5092f2" />
+                <Bar yAxisId="right" dataKey="faltas" barSize={40} fill="#1ac167" />
+            </BarChart>     
           </Grafico>
 
-
+          <ContentStatistic>
+              <Title> Estatística - Estudante </Title>
+              <ContentCampos nome="Situação" porcentagem="46%" cor1="#edf4fe" cor2="#5092f2"/>
+              <ContentCampos nome="Frequência" porcentagem="51.2%" cor1="#e8faee" cor2="#1ac167"/>
+          </ContentStatistic>
         </Grid>        
       </Container>
     );

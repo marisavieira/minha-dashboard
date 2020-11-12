@@ -9,14 +9,11 @@ export const Container = styled.div`
 export const Grid = styled.div`    
     display: grid;
     grid-template-columns: 720px auto;
-    grid-template-rows: 400px auto;
+    grid-template-rows: 80px auto;
 
     grid-template-areas:
     'CI CI'
-    'GF CS';
-
-    margin: 15px; 
-    flex-direction: column
+    'GF CS'; 
 `
    
 
@@ -33,15 +30,16 @@ export const Grafico = styled.div`
     border-radius: 25px;
     
     padding: 15px;
+    margin: 5px 0 10px 20px;
 
-    height:400px;
+    height: 375px;
 
     overflow-y: scroll;
     ::-webkit-scrollbar{
         width: 10px;
     }
     ::-webkit-scrollbar-thumb{
-        background-color: #5dadf4;
+        background-color: #292929;
         border-radius: 10px;
         margin: 35px;
     }
@@ -58,6 +56,7 @@ export const Header = styled.div`
     justify-content: space-between;
     align-items: center;
     margin-bottom: 35px;
+    padding-top: 10px;
 `;
 
 export const Sobre = styled.div`
@@ -79,15 +78,6 @@ export const Descricao = styled.p`
     font-family: 'Public Sans', sans-serif;
     font-size: 12px;
     margin: 0 0 0 5px;
-`;
-
-export const TitleEstatistica = styled.p`
-    color: #70777f;
-    font-weight: 600;
-    font-family: 'Public Sans', sans-serif;
-    font-size: 16px;
-    margin-left: 5px;
-    margin-top: 45px;
 `;
 
 export const BotaoGrafico = styled.a`
@@ -120,16 +110,26 @@ export const BotaoGrafico = styled.a`
 
 export const DivContentInfo = styled.div`
     grid-area: CI;
-    background-color: #000;
-
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;  
+    width: 100%;
+    margin-bottom: 15px;
 `
 
 export const ContentStatistic = styled.div`
     grid-area: CS;
     background-color: #ffffff;
     border-radius: 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     
     padding: 15px 30px;
+    height: 200px;
+    margin: 5px 20px 10px 0;
 
 `
 

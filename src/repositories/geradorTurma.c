@@ -16,9 +16,7 @@ typedef struct{
 	int qntFalta3;
 	
 	float nota4;
-	int qntFalta4;
-	
-	int qntFaltaTotal;
+	int qntFalta4;	
 }estudante;
 
 
@@ -125,11 +123,9 @@ void arquivo3(FILE *arquivo, estudante estudantes[41], int posicao){
 		printf("Erro na abertura do arquivo!");
   	}
   	
-  	for(i=1; i<=40; i++){
-		if(i==1) fprintf(arquivo, "export default [\n	{ 'name': 'Estudante %d',	'estudante': '%.2f',	'turma': '%.2f' },\n", i, estudantes[i].nota1, media);
-		else if(i==40) fprintf(arquivo, "	{ 'name': 'Estudante %d',	'estudante': '%.2f',	'turma': '%.2f' },\n]", i, estudantes[i].nota1, media);
-		else fprintf(arquivo, "	{ 'name': 'Estudante %d',	'estudante': '%.2f',	'turma': '%.2f' },\n", i, estudantes[i].nota1, media);		
-	}
+	fprintf(arquivo, "export default [\n	{ 'name': 'Estudante 1',	'estudante': '%.2f',	'turma': '%.2f' },\n", estudantes[1].nota1, media);	
+  	for(i=2; i<40; i++) fprintf(arquivo, "	{ 'name': 'Estudante %d',	'estudante': '%.2f',	'turma': '%.2f' },\n", i, estudantes[i].nota1, media);
+	fprintf(arquivo, "	{ 'name': 'Estudante 40',	'estudante': '%.2f',	'turma': '%.2f' },\n]", estudantes[40].nota1, media);	
 	
 	
 	fclose(arquivo);
@@ -145,11 +141,9 @@ void arquivo0401(FILE *arquivo, estudante estudantes[41]){
 		printf("Erro na abertura do arquivo!");
   	}
   	
-	for(i=1; i<=40; i++){
-		if(i==1) fprintf(arquivo, "export default [\n	{ 'y': %.1f,	'x': %d },\n", estudantes[i].nota1, estudantes[i].qntFalta1);
-		else if(i==40) fprintf(arquivo, "	{ 'y': %.1f,	'x': %d }\n]", estudantes[i].nota1, estudantes[i].qntFalta1);
-		else fprintf(arquivo, "	{ 'y': %.1f,	'x': %d },\n", estudantes[i].nota1, estudantes[i].qntFalta1);		
-	}
+  	fprintf(arquivo, "export default [\n	{ 'y': %.1f,	'x': %d },\n", estudantes[1].nota1, estudantes[1].qntFalta1);
+	for(i=2; i<40; i++) fprintf(arquivo, "	{ 'y': %.1f,	'x': %d },\n", estudantes[i].nota1, estudantes[i].qntFalta1);	
+  	fprintf(arquivo, "	{ 'y': %.1f,	'x': %d },\n]", estudantes[40].nota1, estudantes[40].qntFalta1);
    
 	fclose(arquivo);
 }
@@ -164,11 +158,10 @@ void arquivo0402(FILE *arquivo, estudante estudantes[41]){
 		printf("Erro na abertura do arquivo!");
   	}
   	
-	for(i=1; i<=40; i++){
-		if(i==1) fprintf(arquivo, "export default [\n	{ 'y': %.1f,	'x': %d },\n", estudantes[i].nota2, estudantes[i].qntFalta2);
-		else if(i==40) fprintf(arquivo, "	{ 'y': %.1f,	'x': %d }\n]", estudantes[i].nota2, estudantes[i].qntFalta2);
-		else fprintf(arquivo, "	{ 'y': %.1f,	'x': %d },\n", estudantes[i].nota2, estudantes[i].qntFalta2);		
-	}
+  	
+	fprintf(arquivo, "export default [\n	{ 'y': %.1f,	'x': %d },\n", estudantes[1].nota2, estudantes[1].qntFalta2);
+	for(i=2; i<40; i++) fprintf(arquivo, "	{ 'y': %.1f,	'x': %d },\n", estudantes[i].nota2, estudantes[i].qntFalta2);
+	fprintf(arquivo, "	{ 'y': %.1f,	'x': %d },\n]", estudantes[40].nota2, estudantes[40].qntFalta2);	  		
    
 	fclose(arquivo);
 }
@@ -183,11 +176,9 @@ void arquivo0403(FILE *arquivo, estudante estudantes[41]){
 		printf("Erro na abertura do arquivo!");
   	}
   	
-	for(i=1; i<=40; i++){
-		if(i==1) fprintf(arquivo, "export default [\n	{ 'y': %.1f,	'x': %d },\n", estudantes[i].nota3, estudantes[i].qntFalta3);
-		else if(i==40) fprintf(arquivo, "	{ 'y': %.1f,	'x': %d }\n]", estudantes[i].nota3, estudantes[i].qntFalta3);
-		else fprintf(arquivo, "	{ 'y': %.1f,	'x': %d },\n", estudantes[i].nota3, estudantes[i].qntFalta3);		
-	}
+	fprintf(arquivo, "export default [\n	{ 'y': %.1f,	'x': %d },\n", estudantes[1].nota3, estudantes[1].qntFalta3);
+	for(i=1; i<=40; i++) fprintf(arquivo, "	{ 'y': %.1f,	'x': %d },\n", estudantes[i].nota3, estudantes[i].qntFalta3);
+	fprintf(arquivo, "	{ 'y': %.1f,	'x': %d },\n]", estudantes[40].nota3, estudantes[40].qntFalta3);
    
 	fclose(arquivo);
 }
@@ -202,11 +193,9 @@ void arquivo0404(FILE *arquivo, estudante estudantes[41]){
 		printf("Erro na abertura do arquivo!");
   	}
   	
-	for(i=1; i<=40; i++){
-		if(i==1) fprintf(arquivo, "export default [\n	{ 'y': %.1f,	'x': %d },\n", estudantes[i].nota4, estudantes[i].qntFalta4);
-		else if(i==40) fprintf(arquivo, "	{ 'y': %.1f,	'x': %d }\n]", estudantes[i].nota4, estudantes[i].qntFalta4);
-		else fprintf(arquivo, "	{ 'y': %.1f,	'x': %d },\n", estudantes[i].nota4, estudantes[i].qntFalta4);		
-	}
+  	fprintf(arquivo, "export default [\n	{ 'y': %.1f,	'x': %d },\n", estudantes[1].nota4, estudantes[1].qntFalta4);
+	for(i=1; i<=40; i++) fprintf(arquivo, "	{ 'y': %.1f,	'x': %d },\n", estudantes[i].nota4, estudantes[i].qntFalta4);
+	fprintf(arquivo, "	{ 'y': %.1f,	'x': %d },\n]", estudantes[40].nota4, estudantes[40].qntFalta4);
    
 	fclose(arquivo);
 }
@@ -215,11 +204,14 @@ void arquivo0404(FILE *arquivo, estudante estudantes[41]){
 /*______________________________________________*/
 /*__________________ ARQUIVO __________________*/
 /*____________________________________________*/
-void arquivo(estudante estudantes[41]){
+void arquivo(estudante estudantes[41], float media, float presenca){
 	int i=0, posicao=0;
 	float mediaProva1=0, mediaProva2=0, mediaTrab1=0, mediaTrab2=0;
   	FILE *arquivo;
-  
+  	
+  	printf(" MEDIA= %f \n PRESENCA= %f\n", media, presenca);
+  	
+  	//arquivoMedia(arquivo, estudantes, media);
 	posicao=arquivo0101(arquivo, estudantes);
 	arquivo0102(arquivo, estudantes, posicao);
 	arquivo2(arquivo, estudantes, posicao);
@@ -242,6 +234,7 @@ void gerarTurma(){
 	srand(time(NULL));
 	
 	int i=0;
+	float somaNota=0, somaFalta=0, media=0, presenca=0;
 		
 	for(i=1; i<=40; i++){		
 		estudantes[i].nota1= randf();
@@ -256,10 +249,17 @@ void gerarTurma(){
 		estudantes[i].nota4= randf();			
 		estudantes[i].qntFalta4=gerarQntFalta(estudantes[i].nota4);
 		
-		estudantes[i].qntFaltaTotal= estudantes[i].qntFalta1+estudantes[i].qntFalta2+estudantes[i].qntFalta3+estudantes[i].qntFalta4;
+		somaNota=estudantes[i].nota1+estudantes[i].nota2+estudantes[i].nota3+estudantes[i].nota4;
+		somaFalta= estudantes[i].qntFalta1 + estudantes[i].qntFalta2 + estudantes[i].qntFalta3 + estudantes[i].qntFalta4;
+		presenca=presenca+somaFalta;
+		media=media+somaNota;
+		somaNota=0;
+		somaFalta=0;
 	}
 	
-	arquivo(estudantes);	
+	media=media/40;	
+	presenca=(100-(((presenca/40)*100)/80));
+	arquivo(estudantes, media, presenca);	
 }
 
 int main(void){

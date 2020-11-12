@@ -45,6 +45,7 @@ void gerarTurma(){
 	aluno alunos[40];
 	char variavel[10][10]= {"Marisa", "Albert", "Vanessa", "Alan", "Manoela"};
 	int i=0;
+	float somatorio=0, media=0;
 	srand(time(NULL));
 	
 	for(i=1; i<=40; i++){
@@ -53,8 +54,13 @@ void gerarTurma(){
 		alunos[i].nota3= randf( trabalhoMin, trabalhoMax );
 		alunos[i].nota4= randf( trabalhoMin, trabalhoMax );
 		printf("Aluno %d : Nota1 = %.1f Nota2 = %.1f Nota3 = %.1f Nota4 = %.1f \n", i, alunos[i].nota1, alunos[i].nota2, alunos[i].nota3, alunos[i].nota4);
+		media=(alunos[i].nota1 + alunos[i].nota2 + alunos[i].nota3 + alunos[i].nota4)/4;
+		somatorio=somatorio+media;
+		media=0;
 		arquivo(alunos[i]);
 	}
+	
+	media=media/40;
 	
 }
 

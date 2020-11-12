@@ -9,7 +9,7 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    padding: 25px;     
+    padding: 10px 25px;     
 `;
 
 export const TituloGrafico = styled.div`
@@ -37,7 +37,7 @@ export const LinkVersao = styled.a`
 
     text-decoration: none;
     color: #fff;
-    background-color: #292929;
+    background-color: #75a02a;
     
     height: 15px;
     border-radius: 10px;
